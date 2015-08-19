@@ -1,0 +1,31 @@
+<h2>Books</h2>
+
+<ul>
+  <% @books.each() do |book| %>
+  <li><%= book.name %> by <%= book.author %>, published in <%= book.year() %> by <%= book.publisher() %>. The genre is <%= book.genre() %>. There are <%= book.quantity() %> copies available at this time.</li>
+  <% end %>
+</ul>
+
+<form action="/books/new" method="post">
+  <label for="name">Book Title</label>
+  <input type="text" id="name" name="name" placeholder="e.g. A Tale of Two Cities"><br>
+
+  <label for="author">Book Author</label>
+  <input type="text" id="author" name="author" placeholder="e.g. Charles Dickens"><br>
+
+  <label for="year">Book Year</label>
+  <input type="number" id="year" name="year" placeholder="e.g. 1859"></br>
+
+  <label for="publisher">Book Publisher</label>
+  <input type="text" id="publisher" name="publisher" placeholder="e.g. Chapman and Hall"></br>
+
+  <label for="genre">Book Genre</label>
+  <input type="text" id="genre" name="genre" placeholder="e.g. Historical"></br>
+
+  <label for="quantity">Book Quantity</label>
+  <input type="number" id="quantity" name="quantity" placeholder="e.g. 3">
+
+  <button type="submit">Add book </button>
+</form>
+
+<a href="/">Home</a>

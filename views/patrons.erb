@@ -1,0 +1,30 @@
+<h2>Patrons</h2>
+
+<ul>
+  <% @patrons.each() do |patron| %>
+  <li><%= patron.name %>, <%= patron.phone %>, <%= patron.city() %>, <%= patron.zip() %>, <%= patron.age() %></li>
+  <% end %>
+</ul>
+
+<form action="/patrons/new" method="post">
+  <label for="name">Patron Name</label>
+  <input type="text" id="name" name="name" placeholder="e.g. John Doe"><br>
+
+  <label for="phone">Patron Phone</label>
+  <input type="text" id="phone" name="phone" placeholder="e.g. 555-5555"><br>
+
+  <label for="city">Patron City</label>
+  <input type="text" id="city" name="city" placeholder="e.g. Miami"></br>
+
+  <label for="zip">Patron Zip</label>
+  <input type="number" id="zip" name="zip" placeholder="e.g. 98155"></br>
+
+
+  <label for="age">Patron Age</label>
+  <input type="text" id="age" name="age" placeholder="e.g. 25"></br>
+
+
+  <button type="submit">Add patron</button>
+</form>
+
+<a href="/">Home</a>
