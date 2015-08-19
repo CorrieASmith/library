@@ -48,3 +48,23 @@ get('/search') do
   @search_term = Books.all()
   erb(:index)
 end
+
+get('/patrons_edit/:id') do
+  @patron = Patrons.find(params.fetch("id").to_i())
+  erb(:patrons_edit)
+end
+
+get('/patrons_edit') do
+  erb(:patrons_edit)
+end
+
+patch('/patrons/:id') do
+  name = params.fetch("name")
+  @patron = Patrons.find(params.fetch("id").to_i())
+  @patron.update({:name => name})
+  erb(:patrons)
+end
+
+# get('/patrons/') do
+#   erb(:patrons_edit)
+# end
