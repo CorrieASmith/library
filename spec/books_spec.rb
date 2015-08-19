@@ -8,6 +8,22 @@ describe(Books) do
     end
   end
 
+  describe('#==') do
+    it('is considered identical if two books are the same') do
+      book1 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
+      book2 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
+      expect(book1).to eq(book2)
+    end
+  end
+
+  describe('#save') do
+    it('saves to database then outputs test book') do
+      test_book = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
+      test_book.save()
+      expect(Books.all()).to eq([test_book])
+    end
+  end
+
   describe('#name') do
     it('outputs name') do
       test_book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12, :id => nil})
@@ -47,14 +63,6 @@ describe(Books) do
     it('outputs quantity') do
       test_book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12, :id => nil})
       expect(test_book.quantity()).to eq(12)
-    end
-  end
-
-  describe('#==') do
-    it('is considered identical if two books are the same') do
-      book1 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
-      book2 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
-      expect(book1).to eq(book2)
     end
   end
 end
