@@ -45,4 +45,10 @@ class Books
       end
     end
   end
+
+  #checkout method?
+    #finds book
+    #@quantity -=1
+    #Patron @checked_out.push
+  #end checkout
 end
