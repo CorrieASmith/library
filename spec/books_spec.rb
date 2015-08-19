@@ -28,4 +28,12 @@ describe(Books) do
       expect(test_book.genre()).to eq("dystopian")
     end
   end
+
+  describe('#publisher') do
+    it('outputs publisher') do
+      test_book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => "1949", :quantity => 12, :id => nil})
+      expect(test_book.publisher()).to eq("Secker & Warburg")
+    end
+  end
+
 end
