@@ -6,7 +6,7 @@ class Books
     @author = attributes.fetch(:author)
     @genre = attributes.fetch(:genre)
     @publisher = attributes.fetch(:publisher)
-    @year = attributes.fetch(:year)
+    @year = attributes.fetch(:year).to_i()
     @quantity = attributes.fetch(:quantity)
     @id = attributes.fetch(:id)
   end
@@ -19,7 +19,7 @@ class Books
       author = books.fetch('author')
       genre = books.fetch('genre')
       publisher = books.fetch('publisher')
-      year = books.fetch('year')
+      year = books.fetch('year') 
       quantity = books.fetch('quantity')
       id = books.fetch('id')
       books.push(Books.new({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity, :id => id}))
