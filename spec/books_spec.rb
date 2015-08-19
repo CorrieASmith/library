@@ -2,11 +2,11 @@ require('spec_helper')
 
 describe(Books) do
 
-  describe('.all') do
-    it('is empty at first') do
-      expect(Books.all()).to(eq([]))
-    end
-  end
+  # describe('.all') do
+  #   it('is empty at first') do
+  #     expect(Books.all()).to(eq([]))
+  #   end
+  # end
 
   describe('#==') do
     it('is considered identical if two books are the same') do
