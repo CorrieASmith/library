@@ -33,4 +33,12 @@ class Patrons
     result = DB.exec("INSERT INTO patrons (name, phone, city, zip, age) VALUES ('#{@name}',#{@phone}, '#{@city}', #{@zip}, #{@age}) RETURNING id;")
     @id = result.first().fetch('id').to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    Patrons.all().each() do |patron|
+      if patron.id() == id
+        return patron
+      end
+    end
+  end
 end

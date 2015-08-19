@@ -16,6 +16,16 @@ describe(Patrons) do
     end
   end
 
+  describe('.find') do
+    it('finds a book from its id') do
+      test_patron1 = Patrons.new({:id => nil, :name => 'Joe', :phone => 555-555-5555, :city => 'Miami', :zip => 12345, :age => 25})
+      test_patron1.save()
+      test_patron2 = Patrons.new({:id => nil, :name => 'Duke', :phone => 333-333-3333, :city => 'Denver', :zip => 12345, :age => 28})
+      test_patron2.save()
+      expect(Patrons.find(test_patron1.id())).to eq(test_patron1)
+    end
+  end
+
   describe('#save') do
     it('saves a new patron') do
       test_patron = Patrons.new({:id => nil, :name => 'Joe', :phone => 555-555-5555, :city => 'Miami', :zip => 12345, :age => 25})
