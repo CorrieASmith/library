@@ -24,6 +24,16 @@ describe(Books) do
     end
   end
 
+  describe('.find') do
+    it('finds a book from its id') do
+      test_book1 = Books.new({:name => "The God Delusion", :author => "Richard Dawkins", :genre => "non-fiction", :publisher => "Bantam Books", :year => 2006, :quantity => 2, :id => nil})
+      test_book1.save()
+      test_book2 = Books.new({:name => "The Call of Cthulhu", :author => "H.P. Lovecraft", :genre => "horror", :publisher => "Weird Tales", :year => 1928, :quantity => 1, :id => nil})
+      test_book2.save()
+      expect(Books.find(test_book2.id())).to eq(test_book2)
+    end
+  end
+
   describe('#name') do
     it('outputs name') do
       test_book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12, :id => nil})

@@ -37,4 +37,12 @@ class Books
     result = DB.exec("INSERT INTO books (name, author, genre, publisher, year, quantity) VALUES ('#{@name}','#{@author}', '#{@genre}','#{@publisher}', #{@year}, #{@quantity}) RETURNING id;")
     @id = result.first().fetch('id').to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    Books.all().each() do |book|
+      if book.id() == id
+        return book
+      end
+    end
+  end
 end
