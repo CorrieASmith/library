@@ -50,4 +50,11 @@ describe(Books) do
     end
   end
 
+  describe('#==') do
+    it('is considered identical if two books are the same') do
+      book1 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
+      book2 = Books.new({:name => "A Tale of Two Cities", :author => "Charles Dickens", :genre => "historical", :publisher => "London: Chapman & Hall", :year => 1859, :quantity => 12, :id => nil})
+      expect(book1).to eq(book2)
+    end
+  end
 end

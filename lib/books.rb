@@ -19,11 +19,15 @@ class Books
       author = books.fetch('author')
       genre = books.fetch('genre')
       publisher = books.fetch('publisher')
-      year = books.fetch('year') 
+      year = books.fetch('year')
       quantity = books.fetch('quantity')
       id = books.fetch('id')
       books.push(Books.new({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity, :id => id}))
     end
     books
+  end
+
+  define_method(:==) do |other|
+    self.id().eql?(other.id())
   end
 end
