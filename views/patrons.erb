@@ -5,13 +5,13 @@
   <li><%= patron.name %>, <%= patron.phone %>, <%= patron.city() %>, <%= patron.zip() %>, <%= patron.age() %></li>
   <% end %>
 </ul>
-
+<div class="library_form">
 <form action="/patrons/new" method="post">
   <label for="name">Patron Name</label>
   <input type="text" id="name" name="name" placeholder="e.g. John Doe"><br>
 
   <label for="phone">Patron Phone</label>
-  <input type="text" id="phone" name="phone" placeholder="e.g. 555-5555"><br>
+  <input type="text" id="phone" name="phone" placeholder="e.g. 5555555"><br>
 
   <label for="city">Patron City</label>
   <input type="text" id="city" name="city" placeholder="e.g. Miami"></br>
@@ -26,5 +26,5 @@
 
   <button type="submit">Add patron</button>
 </form>
-
+</div>
 <a href="/">Home</a>

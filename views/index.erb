@@ -1,5 +1,6 @@
 <h1>Welcome to Library!</h1>
 
+<div class="h3_container">
 <h3>See our available books:</h3>
 <ul>
   <li><a href="/books">Click here!</a></li>
@@ -9,3 +10,20 @@
 <ul>
   <li><a href="/patrons">Click here!</a></li>
 </ul>
+</div>
+
+<h3>Search for a book:</h3>
+
+<form id="search" action="/search" method="get">
+
+  <label for="search_term">Enter search details:</label>
+  <input type="text" name="search_term" placeholder = "search this word">
+
+  <input type="radio" name="search_type" value="title" checked> <span style="color: blue; font-family: 'Poiret One';"> Search By Title </span>
+  <input type="radio" name="search_type" value="author"><span style="color: blue; font-family: 'Poiret One';"> Search By Author </span>
+
+  <button name="button">Search</button>
+
+</form>
+
+<!--#DB.exec("SELECT * FROM books WHERE #{@search_type} = #{@search_term}")-->

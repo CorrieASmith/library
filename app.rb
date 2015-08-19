@@ -43,3 +43,8 @@ post('/patrons/new') do
   patron.save()
   redirect('/patrons')
 end
+
+get('/search') do
+  @search_term = Books.all()
+  erb(:index)
+end

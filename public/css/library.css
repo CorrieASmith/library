@@ -1,0 +1,69 @@
+html,body {
+  background: url("http://hasrulman.com.tr/images2/75/background06-2ec3.jpg") no-repeat;
+  center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+h1 {
+
+  font-family: 'Poiret One', cursive;
+  font-size: 64px;
+  text-align: center;
+
+}
+
+h2 {
+
+  font-family: 'Poiret One', cursive;
+
+}
+
+h3 {
+  font-family: 'Poiret One', cursive;
+  font-size: 27px;
+  text-align: center;
+}
+
+button {
+  font-family: 'Poiret One', cursive;
+
+}
+
+.h3_container {
+  text-align: center;
+}
+
+.h3_container ul {
+  list-style-type: none;
+
+}
+
+a {
+  border: 1px solid black;
+  padding: 5px;
+
+}
+
+label {
+  font-family: 'Poiret One', cursive;
+}
+
+input {
+  font-family: 'Poiret One', cursive;
+}
+
+li {
+  font-family: 'Poiret One', cursive;
+}
+
+.library_form input {
+  padding: 2px;
+  margin: 5px;
+}
+
+a {
+  font-family: 'Poiret One', cursive;
+}
