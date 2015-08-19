@@ -24,4 +24,13 @@ class Patrons
     end
     patrons
   end
+
+  define_method(:==) do |other|
+    self.id().eql?(other.id())
+  end
+
+  define_method(:save) do
+    result = DB.exec("INSERT INTO patrons (name, phone, city, zip, age) VALUES ('#{@name}',#{@phone}, '#{@city}', #{@zip}, #{@age}) RETURNING id;")
+    @id = result.first().fetch('id').to_i()
+  end
 end
