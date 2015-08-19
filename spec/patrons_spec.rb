@@ -33,4 +33,13 @@ describe(Patrons) do
       expect(Patrons.all()).to eq([test_patron])
     end
   end
+
+  describe('#update') do
+    it("lets you update a patrons information") do
+      patron = Patrons.new({:id => nil, :name => 'John Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25})
+      patron.save()
+      patron.update({:name => 'Jane Doe'})
+      expect(patron.name()).to(eq('Jane Doe'))
+    end
+  end
 end
