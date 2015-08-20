@@ -2,7 +2,7 @@
 
 <ul>
   <% @patrons.to_a.each() do |patron| %>
-  <li><a href="patrons_edit/<%= patron.id %>"><%= patron.name %>, <%= patron.phone %>, <%= patron.city() %>, <%= patron.zip() %>, <%= patron.age() %></a></li><br>
+  <li><a href="/patrons_edit/<%= patron.id %>"><%= patron.name %>, <%= patron.phone %>, <%= patron.city() %>, <%= patron.zip() %>, <%= patron.age() %></a></li><br>
   <% end %>
 </ul>
 <div class="library_form">

@@ -1,3 +1,5 @@
+require('pry')
+
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/books')
@@ -49,22 +51,22 @@ get('/search') do
   erb(:index)
 end
 
-get('/patrons_edit/:id') do
+get('/patrons/:id') do
   @patron = Patrons.find(params.fetch("id").to_i())
-  erb(:patrons_edit)
+  erb(:patrons)
 end
 
-get('/patrons_edit') do
+get('/patrons_edit/:id') do
+  @patron = Patrons.find(params.fetch("id").to_i())
+  @patron_name = @patron.name()
+  @patron_id = @patron.id()
   erb(:patrons_edit)
 end
 
 patch('/patrons/:id') do
-  name = params.fetch("name")
+  name = params.fetch('name')
   @patron = Patrons.find(params.fetch("id").to_i())
   @patron.update({:name => name})
-  erb(:patrons)
+  @patrons = Patrons.all()
+  redirect('/patrons')
 end
-
-# get('/patrons/') do
-#   erb(:patrons_edit)
-# end
