@@ -25,6 +25,7 @@ describe('add a patron to the library database', {:type => :feature}) do
     fill_in('city', :with => "Austin")
     fill_in('zip', :with => 78909)
     fill_in('age', :with => 123)
+    #fill_in('checkout', :with => 'A Tale of Two Cities')
     click_button('Add patron')
     expect(page).to have_content('Billy Bob')
   end

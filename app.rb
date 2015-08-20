@@ -41,7 +41,7 @@ post('/patrons/new') do
   city = params.fetch('city')
   zip = params.fetch('zip')
   age = params.fetch('age')
-  patron = Patrons.new({:id => nil, :name => name, :phone => phone, :city => city, :zip => zip, :age => age})
+  patron = Patrons.new({:id => nil, :name => name, :phone => phone, :city => city, :zip => zip, :age => age, :checkout => ""})
   patron.save()
   redirect('/patrons')
 end
