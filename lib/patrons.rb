@@ -56,4 +56,8 @@ class Patrons
 
     DB.exec("UPDATE patrons SET age = #{@age} WHERE id = #{@id};")
   end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM patrons WHERE id = #{self.id()};")
+  end
 end

@@ -42,4 +42,13 @@ describe(Patrons) do
       expect(patron.name()).to(eq('Jane Doe'))
     end
   end
+
+  describe('#delete') do
+    it("deletes a patron from the database") do
+      patron = Patrons.new({:name => 'Jane Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25, :id => nil})
+      patron.save()
+      patron.delete()
+      expect(Patrons.all()).to(eq([]))
+    end
+  end
 end

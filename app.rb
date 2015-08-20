@@ -214,3 +214,10 @@ patch('/books/:id/quantity') do
   @books = Books.all()
   redirect('/books')
 end
+
+delete("/patrons/:id") do
+  @patron = Patrons.find(params.fetch("id").to_i())
+  @patron.delete()
+  @patrons = Patrons.all()
+  redirect('/patrons')
+end
