@@ -41,6 +41,26 @@ describe(Patrons) do
       patron.update({:name => 'Jane Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25, :checkout => 'A Tale of Two Cities'})
       expect(patron.name()).to(eq('Jane Doe'))
     end
+
+    it("lets you add a book to a patron") do
+      patron = Patrons.new({:id => nil, :name => 'John Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25, :checkout => 'A Tale of Two Cities'})
+      patron.save()
+      bible = Books.new({:name => "The Bible", :author => "Lots of Dudes", :genre => "Religious", :publisher => "Christianity Today", :year => "2000", :quantity => 6, :id => nil})
+      bible.save()
+      patron.update({:name => patron.name, :phone => patron.phone, :city => patron.city, :zip => patron.zip, :age => patron.age, :checkout => patron.checkout, :books_id => [bible.id()]})
+      expect(patron.checked()).to(eq([bible]))
+    end
+  end
+
+  describe('#checked') do
+    it("returns all of the books checked out by a patron") do
+      patron = Patrons.new({:id => nil, :name => 'John Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25, :checkout => 'A Tale of Two Cities'})
+      patron.save()
+      bible = Books.new({:name => "The Bible", :author => "Lots of Dudes", :genre => "Religious", :publisher => "Christianity Today", :year => "2000", :quantity => 6, :id => nil})
+      bible.save()
+      patron.update({:name => patron.name, :phone => patron.phone, :city => patron.city, :zip => patron.zip, :age => patron.age, :checkout => patron.checkout, :books_id => [bible.id()]})
+      expect(patron.checked()).to(eq([bible]))
+    end
   end
 
   describe('#delete') do
