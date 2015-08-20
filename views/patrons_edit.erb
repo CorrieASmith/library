@@ -1,5 +1,5 @@
 <h2> Update the <%= @patron_name %> patron </h2>
-<form action="/patrons/<%= @patron_id %>" method="post">
+<form action="/patrons/<%= @patron_id %>/name" method="post">
   <input name="_method" type="hidden" value="patch">
   <input id = "id" name="id" type="hidden" value="<%= @patron_id%>">
 
@@ -9,7 +9,7 @@
   <button type="submit">Update Patron</button>
 </form>
 
-<form action="/patrons/<%= @patron_id %>" method="post">
+<form action="/patrons/<%= @patron_id %>/phone" method="post">
   <input name="_method" type="hidden" value="patch">
   <input id = "id" name="id" type="hidden" value="<%= @patron_id%>">
 

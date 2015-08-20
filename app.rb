@@ -53,6 +53,7 @@ end
 
 get('/patrons/:id') do
   @patron = Patrons.find(params.fetch("id").to_i())
+  @patrons = Patrons.all()
   erb(:patrons)
 end
 
@@ -63,10 +64,19 @@ get('/patrons_edit/:id') do
   erb(:patrons_edit)
 end
 
-patch('/patrons/:id') do
+patch('/patrons/:id/name') do
   name = params.fetch('name')
   @patron = Patrons.find(params.fetch("id").to_i())
   @patron.update({:name => name})
+  @patrons = Patrons.all()
+  redirect('/patrons')
+end
+
+patch('/patrons/:id/phone') do
+  phone = params.fetch('phone')
+  @patron = Patrons.find(params.fetch("id").to_i())
+  name = @patron.name()
+  @patron.update({:phone => phone, :name =>name})
   @patrons = Patrons.all()
   redirect('/patrons')
 end
