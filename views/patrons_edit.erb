@@ -18,3 +18,33 @@
 
   <button type="submit">Update Patron</button>
 </form>
+
+<form action="/patrons/<%= @patron_id %>/city" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id = "id" name="id" type="hidden" value="<%= @patron_id%>">
+
+  <label for="city">Add a new city for this patron:</label>
+  <input id="city" name="city" type="text">
+
+  <button type="submit">Update Patron</button>
+</form>
+
+<form action="/patrons/<%= @patron_id %>/zip" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id = "id" name="id" type="hidden" value="<%= @patron_id%>">
+
+  <label for="zip">Add a new zip code for this patron:</label>
+  <input id="zip" name="zip" type="text">
+
+  <button type="submit">Update Patron</button>
+</form>
+
+<form action="/patrons/<%= @patron_id %>/age" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id = "id" name="id" type="hidden" value="<%= @patron_id%>">
+
+  <label for="age">Add a new age for this patron:</label>
+  <input id="age" name="age" type="text">
+
+  <button type="submit">Update Patron</button>
+</form>

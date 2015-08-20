@@ -45,8 +45,15 @@ class Patrons
   define_method(:update) do |attributes|
     @name = attributes.fetch(:name)
     @phone = attributes.fetch(:phone)
+    @city = attributes.fetch(:city)
+    @zip = attributes.fetch(:zip)
+    @age = attributes.fetch(:age)
     @id = self.id()
     DB.exec("UPDATE patrons SET name = '#{@name}' WHERE id = #{@id};")
     DB.exec("UPDATE patrons SET phone = #{@phone} WHERE id = #{@id};")
+    DB.exec("UPDATE patrons SET city = '#{@city}' WHERE id = #{@id};")
+    DB.exec("UPDATE patrons SET zip = #{@zip} WHERE id = #{@id};")
+
+    DB.exec("UPDATE patrons SET age = #{@age} WHERE id = #{@id};")
   end
 end

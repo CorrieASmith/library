@@ -67,7 +67,11 @@ end
 patch('/patrons/:id/name') do
   name = params.fetch('name')
   @patron = Patrons.find(params.fetch("id").to_i())
-  @patron.update({:name => name})
+  phone = @patron.phone()
+  city = @patron.city()
+  zip = @patron.zip()
+  age = @patron.age()
+  @patron.update({:phone => phone, :name =>name, :city => city, :zip => zip, :age => age})
   @patrons = Patrons.all()
   redirect('/patrons')
 end
@@ -76,7 +80,46 @@ patch('/patrons/:id/phone') do
   phone = params.fetch('phone')
   @patron = Patrons.find(params.fetch("id").to_i())
   name = @patron.name()
-  @patron.update({:phone => phone, :name =>name})
+  city = @patron.city()
+  zip = @patron.zip()
+  age = @patron.age()
+  @patron.update({:phone => phone, :name =>name, :city => city, :zip => zip, :age => age})
+  @patrons = Patrons.all()
+  redirect('/patrons')
+end
+
+patch('/patrons/:id/city') do
+  city = params.fetch('city')
+  @patron = Patrons.find(params.fetch("id").to_i())
+  name = @patron.name()
+  phone = @patron.phone()
+  zip = @patron.zip()
+  age = @patron.age()
+  @patron.update({:phone => phone, :name =>name, :city => city, :zip => zip, :age => age})
+  @patrons = Patrons.all()
+  redirect('/patrons')
+end
+
+patch('/patrons/:id/zip') do
+  zip = params.fetch('zip')
+  @patron = Patrons.find(params.fetch("id").to_i())
+  name = @patron.name()
+  phone = @patron.phone()
+  city = @patron.city()
+  age = @patron.age()
+  @patron.update({:phone => phone, :name =>name, :city => city, :zip => zip, :age => age})
+  @patrons = Patrons.all()
+  redirect('/patrons')
+end
+
+patch('/patrons/:id/age') do
+  age = params.fetch('age')
+  @patron = Patrons.find(params.fetch("id").to_i())
+  name = @patron.name()
+  phone = @patron.phone()
+  city = @patron.city()
+  zip = @patron.zip()
+  @patron.update({:phone => phone, :name =>name, :city => city, :zip => zip, :age => age})
   @patrons = Patrons.all()
   redirect('/patrons')
 end
