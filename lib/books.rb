@@ -46,6 +46,22 @@ class Books
     end
   end
 
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name)
+    @author = attributes.fetch(:author)
+    @year = attributes.fetch(:year)
+    @publisher = attributes.fetch(:publisher)
+    @genre = attributes.fetch(:genre)
+    @quantity = attributes.fetch(:quantity)
+    @id = self.id()
+    DB.exec("UPDATE books SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET author = '#{@author}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET year = #{@year} WHERE id = #{@id};")
+    DB.exec("UPDATE books SET publisher = '#{@publisher}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET genre = '#{@genre}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET quantity = #{@quantity} WHERE id = #{@id};")
+  end
+
   #checkout method?
     #finds book
     #@quantity -=1

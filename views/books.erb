@@ -2,7 +2,7 @@
 <hr>
 <ul>
   <% @books.each() do |book| %>
-  <li><%= book.name %> by <%= book.author %>, published in <%= book.year() %> by <%= book.publisher() %>. The genre is <%= book.genre() %>. There are <%= book.quantity() %> copies available at this time.</li>
+  <li><a href="/books_edit/<%=book.id %>"><%= book.name %> by <%= book.author %>, published in <%= book.year() %> by <%= book.publisher() %>. The genre is <%= book.genre() %>. There are <%= book.quantity() %> copies available at this time.</a></li>
   <% end %>
 </ul>
 <div class="library_form">

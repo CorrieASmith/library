@@ -38,7 +38,7 @@ describe(Patrons) do
     it("lets you update a patrons information") do
       patron = Patrons.new({:id => nil, :name => 'John Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25})
       patron.save()
-      patron.update({:name => 'Jane Doe'})
+      patron.update({:name => 'Jane Doe', :phone => "555-555-5555", :city => 'Miami', :zip => 12345, :age => 25})
       expect(patron.name()).to(eq('Jane Doe'))
     end
   end

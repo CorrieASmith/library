@@ -123,3 +123,94 @@ patch('/patrons/:id/age') do
   @patrons = Patrons.all()
   redirect('/patrons')
 end
+
+get('/books/:id') do
+  @book = Books.find(params.fetch("id").to_i())
+  @books = Books.all()
+  erb(:books)
+end
+
+get('/books_edit/:id') do
+  @book = Books.find(params.fetch("id").to_i())
+  @book_name = @book.name()
+  @book_id = @book.id()
+  erb(:books_edit)
+end
+
+patch('/books/:id/name') do
+  name = params.fetch('name')
+  @book = Books.find(params.fetch("id").to_i())
+  author = @book.author()
+  year = @book.year()
+  publisher = @book.publisher()
+  genre = @book.genre()
+  quantity = @book.quantity()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end
+
+patch('/books/:id/author') do
+  author = params.fetch('author')
+  @book = Books.find(params.fetch("id").to_i())
+  name = @book.name()
+  year = @book.year()
+  publisher = @book.publisher()
+  genre = @book.genre()
+  quantity = @book.quantity()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end
+
+patch('/books/:id/year') do
+  year = params.fetch('year')
+  @book = Books.find(params.fetch("id").to_i())
+  name = @book.name()
+  author = @book.author()
+  publisher = @book.publisher()
+  genre = @book.genre()
+  quantity = @book.quantity()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end
+
+patch('/books/:id/publisher') do
+  publisher = params.fetch('publisher')
+  @book = Books.find(params.fetch("id").to_i())
+  name = @book.name()
+  author = @book.author()
+  year = @book.year()
+  genre = @book.genre()
+  quantity = @book.quantity()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end
+
+patch('/books/:id/genre') do
+  genre = params.fetch('genre')
+  @book = Books.find(params.fetch("id").to_i())
+  name = @book.name()
+  author = @book.author()
+  year = @book.year()
+  publisher = @book.publisher()
+  quantity = @book.quantity()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end
+
+patch('/books/:id/quantity') do
+  quantity = params.fetch('quantity')
+  @book = Books.find(params.fetch("id").to_i())
+  name = @book.name()
+  author = @book.author()
+  year = @book.year()
+  publisher = @book.publisher()
+  genre = @book.genre()
+  @book.update({:name => name, :author => author, :genre => genre, :publisher => publisher, :year => year, :quantity => quantity})
+  @books = Books.all()
+  redirect('/books')
+end

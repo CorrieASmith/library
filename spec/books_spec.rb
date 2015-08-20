@@ -75,4 +75,13 @@ describe(Books) do
       expect(test_book.quantity()).to eq(12)
     end
   end
+
+  describe('#update') do
+    it("lets you update a books information") do
+      book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12, :id => nil})
+      book.save()
+      book.update({:name => 'Great Expectations', :author => "Frank", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12})
+      expect(book.name()).to(eq('Great Expectations'))
+    end
+  end
 end
