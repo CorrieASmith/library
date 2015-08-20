@@ -62,6 +62,10 @@ class Books
     DB.exec("UPDATE books SET quantity = #{@quantity} WHERE id = #{@id};")
   end
 
+  define_method(:delete) do
+    DB.exec("DELETE FROM books WHERE id = #{self.id()};")
+  end
+
   #checkout method?
     #finds book
     #@quantity -=1

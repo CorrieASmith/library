@@ -221,3 +221,10 @@ delete("/patrons/:id") do
   @patrons = Patrons.all()
   redirect('/patrons')
 end
+
+delete("/books/:id") do
+  @book = Books.find(params.fetch("id").to_i())
+  @book.delete()
+  @books = Books.all()
+  redirect('/books')
+end

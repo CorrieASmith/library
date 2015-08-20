@@ -84,4 +84,13 @@ describe(Books) do
       expect(book.name()).to(eq('Great Expectations'))
     end
   end
+
+  describe('#delete') do
+    it("deletes a book from the database") do
+      book = Books.new({:name => "1984", :author => "George Orwell", :genre => "dystopian", :publisher => "Secker & Warburg", :year => 1949, :quantity => 12, :id => nil})
+      book.save()
+      book.delete()
+      expect(Books.all()).to(eq([]))
+    end
+  end
 end
